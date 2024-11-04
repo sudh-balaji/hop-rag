@@ -34,7 +34,7 @@ python main.py
 
 Test the API via FastAPI's interactive docs at `/docs`:
 
-POST `/chat`
+POST `/`
 
 ```json
 {
