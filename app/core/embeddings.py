@@ -17,6 +17,7 @@ class Embeddings:
   def load_embeddings(self, documents):
     try:
       db = Chroma.from_documents(documents, self.embeddings)
-      return db.as_retriever(search_kwargs={"k": 3})
+      k = min(3, len(documents))
+      return db.as_retriever(search_kwargs={"k": k})
     except Exception as e:
       raise Exception(f"Error creating retriever: {str(e)}")

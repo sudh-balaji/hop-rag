@@ -12,7 +12,7 @@ class ModelLoader:
                   temperature: float = 0.1, 
                   top_p: float = 0.95,
                   repetition_penalty: float = 1.15):
-
+        # "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
         try:
             tokenizer = AutoTokenizer.from_pretrained(model_name)
             model = AutoModelForCausalLM.from_pretrained(
@@ -36,7 +36,15 @@ class ModelLoader:
                 # return_full_text=False, 
             )
             
-            return HuggingFacePipeline(pipeline=pipe)
+            return HuggingFacePipeline(
+              pipeline=pipe,
+              model_kwargs={
+                "temperature": temperature,
+                "max_new_tokens": max_tokens,
+                "top_p": top_p,
+                "repetition_penalty": repetition_penalty
+              }
+            )
             
         except Exception as e:
             raise Exception(f"Error loading model {model_name}: {str(e)}")
