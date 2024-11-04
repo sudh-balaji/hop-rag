@@ -1,0 +1,28 @@
+<!-- templates/chat.html -->
+{% extends "base.html" %} {% block content %}
+<div class="chat-container">
+  <h1>Basic RAG Chat</h1>
+
+  <form class="chat-form" method="post" action="/">
+    <input
+      type="text"
+      name="question"
+      placeholder="Type your question here"
+      value="{{ question if question else '' }}"
+      required
+      maxlength="256"
+      style="width: 70%; padding: 8px"
+    />
+    <button type="submit" style="padding: 8px 16px">Ask</button>
+  </form>
+
+  {% if error %}
+  <div class="error">Error: {{ error }}</div>
+  {% endif %} {% if question and answer %}
+  <div class="response">
+    <strong>Question:</strong> {{ question }}<br /><br />
+    <strong>Answer:</strong> {{ answer }}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

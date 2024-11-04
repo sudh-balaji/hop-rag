@@ -42,8 +42,11 @@ POST `/chat`
 }
 ```
 
-## Models Available
+## Models to consider
 
 - TinyLlama/TinyLlama-1.1B-Chat-v1.0 (default)
-
-Choose model by changing `model_name` in ChatModel initialization.
+- Phi-1.5
+- Mistral-7B (or smaller quantized versions)
+- T5-small
+- BART-small
+- Flan-T5-small

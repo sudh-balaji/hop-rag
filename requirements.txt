@@ -20,3 +20,5 @@ typing-extensions
 numpy
 accelerate
 chromadb
+websockets
+python-multipart
