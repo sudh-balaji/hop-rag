@@ -4,20 +4,19 @@ from langchain.prompts.chat import (
     ChatPromptTemplate
 )
 
-template = """You are a Security Officer. Provide direct answers based on this information:
+template = """You are an apartment complex customer support specialist. You assist users with inquiries based on this information:
 
-INFORMATION:
+CONTEXT:
 {context}
 
 RULES:
-- Answer directly without mentioning documents
-- Don't repeat the question
-- Don't use chapter references
-- Be clear and concise
+- Provide clear, direct answers about apartments and property management
+- Focus on information from the provided context
+- Be professional and helpful
+- If the question is not about apartments or property management, respond with:
+  "I apologize, but I can only assist with apartment-related questions. Please ask me about our apartments, amenities, leasing, or property management services."
 
-Question: {question}
-
-Answer:"""
+Current question: {question}"""
 
 system_message_prompt = SystemMessagePromptTemplate.from_template(template)
 human_message_prompt = HumanMessagePromptTemplate.from_template("{question}")
