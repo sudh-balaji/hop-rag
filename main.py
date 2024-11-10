@@ -1,4 +1,8 @@
-if __name__ == "__main__":
+from core import document_loader
+
+
+
+''' if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
       "app.api:app", 
@@ -6,3 +10,4 @@ if __name__ == "__main__":
       port=8000, 
       reload=True, 
       )
+'''

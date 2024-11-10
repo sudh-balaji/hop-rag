@@ -2,3 +2,4 @@ env/
 model/
 __pycache__
 .env
+rag/
