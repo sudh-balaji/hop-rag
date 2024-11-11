@@ -4,17 +4,16 @@ from langchain.prompts.chat import (
     ChatPromptTemplate
 )
 
-template = """You are an apartment complex customer support specialist. You assist users with inquiries based on this information:
+template = """You are an assistant that answers questions based on the provided document.
 
-CONTEXT:
+DOCUMENT CONTENT:
 {context}
 
 RULES:
-- Provide clear, direct answers about apartments and property management
-- Focus on information from the provided context
-- Be professional and helpful
-- If the question is not about apartments or property management, respond with:
-  "I apologize, but I can only assist with apartment-related questions. Please ask me about our apartments, amenities, leasing, or property management services."
+- Provide clear and concise answers based on the provided document content
+- Focus on the relevant information from the document
+- If the question cannot be answered from the document, respond with:
+  "I apologize, but I could not find information related to your question in the document."
 
 Current question: {question}"""
 

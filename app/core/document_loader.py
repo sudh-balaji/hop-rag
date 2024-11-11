@@ -21,12 +21,12 @@ class DocumentLoader:
         return text_splitter.split_documents(docs)
 
 class S3DocumentLoader:
-    def __init__(self, bucket: str, key: str):
+    def __init__(self):
         self.client = boto3.client('s3')
         self.chunk_size = 512
         self.chunk_overlap = 50
 
-    def load_document(self, bucket_name, file_key):
+    def load_documents(self, bucket_name, file_key):
         # Retrieve the file from S3
         obj = self.client.get_object(Bucket=bucket_name, Key=file_key)
         file_content = obj["Body"].read()
@@ -61,8 +61,8 @@ class S3DocumentLoader:
         return text_splitter.split_documents([doc_object])
 
 # Example usage
-bucket_name = 'training-data-hopfalgebra-slm'
+''' bucket_name = 'training-data-hopfalgebra-slm'
 object_key = 'training-data/example_training_data.pdf'
-s3_client = S3DocumentLoader(bucket_name, object_key)
-corpus = s3_client.load_document(bucket_name, object_key)
-print(corpus)
+s3_client = S3DocumentLoader()
+corpus = s3_client.load_documents(bucket_name, object_key)
+print(corpus) '''
